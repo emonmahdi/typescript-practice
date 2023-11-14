@@ -26,3 +26,20 @@ const person: {
 };
 
 // default parameter
+function sum(first: number, second: number = 5) {
+  return first + second;
+}
+
+console.log(sum(22, 10)); // default parameter set are second parameter not the first parameter
+
+// spread operator
+const myFri = ["abir", "kabir", "rashid"];
+const newFri = ["habib", "jamil", "rakib"];
+
+console.log(...newFri);
+
+//rest parameter
+const greetFri = (...fri: string[]): void =>
+  fri.forEach((fr) => console.log(`Hi ${fr}`));
+
+greetFri("abul", "habib", "jasim", "asif", "joynal", "hossen");
