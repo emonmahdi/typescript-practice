@@ -1,0 +1,18 @@
+Some question for typescript
+1. What is typescript?
+2. Why use typescript for creating application
+3. How to benifit use typescript
+4. TypeScript key features
+5. Best practice of typescript?
+6. Some problem solving typescript?
+7. React TypeScript
+
+
+
+Advanced:
+
+1. Type Assertion
+   
+2. Interface
+    * difference between type and Interface?
+    * When i use type and when i use interface?

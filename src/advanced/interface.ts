@@ -40,9 +40,14 @@ const persons: IUser ={
 // type usecase  - string, number, boolean, function, array
 // interface usecase - object
 
+// object
+interface IAddNumber {
+    (num1: number,num2: number) : number
+}
+
 // function
 type addNumberType = (num1: number, num2: number) => number
-const addNumbers: addNumberType = (num1, num2) => num1 + num2 
+const addNumbers: IAddNumber = (num1, num2) => num1 + num2 
 
 // array 
 type rollNumberType = string[]
@@ -52,3 +57,8 @@ interface IRollNumber {
 }
 
 const rollNumber: IRollNumber = ['1','2','3']
+
+// object
+interface IAddNumber {
+    (num1: number,num2: number) : number
+}
