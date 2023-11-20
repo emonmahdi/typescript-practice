@@ -1,0 +1,7 @@
+Link: 
+
+Bootcamp: https://academy.vivasoftltd.com/typescript-bootcamp/course-introduction/course-guideline/what-is-typescript/
+
+1. https://www.interviewbit.com/typescript-interview-questions/
+2. https://www.edureka.co/blog/interview-questions/typescript-interview-questions/
+3. https://www.simplilearn.com/tutorials/typescript-tutorial/typescript-interview-questions
