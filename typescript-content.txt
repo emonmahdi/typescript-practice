@@ -16,3 +16,9 @@ Advanced:
 2. Interface
     * difference between type and Interface?
     * When i use type and when i use interface?
+3. Generics
+
+4. Generics Constraints
+5. Generics keyof Constraints
+6. Asynchronous typescript
+7. Conditionla typescript
