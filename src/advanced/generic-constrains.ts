@@ -11,11 +11,18 @@ const userInfoData = <T extends Mandatory>(myInfos: T) => {
   return myInfos;
 };
 
-const myInfos = {
+type myInfosType = {
+  name: string;
+  age: number;
+  salary: number;
+  job: string;
+};
+
+const myInfos: myInfosType = {
   name: "Rakib",
   age: 39,
   salary: 3000,
   job: "developer",
 };
 
-const resultInfo = userInfoData(myInfos);
+const resultInfo = userInfoData<myInfosType>(myInfos);
