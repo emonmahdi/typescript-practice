@@ -1,5 +1,39 @@
 # TypeScript Concepts, Qustions and Answer
 
+### Installation and setup typescript in my machine
+
+1. Install typescript globally in Computer
+
+`npm install -g typescript`
+
+2. initialize tsconfig file
+
+`tsc --init`
+
+3. initialize package.json file
+
+`npm init -y`
+
+4. Install nodemon
+
+`npm i -D nodemon`
+
+5. Install ts node dev
+
+`npm i ts-node-dev`
+
+6. Then add script in package.json from ts-node-dev docs
+
+`ts-node-dev --respawn --transpile-only src/index.ts`
+
+7. Create src folder and index.ts file and dist folder in root file
+
+8. Modify tsconfig.json file rootDir - /src and outDir - ./dist
+
+9. Then finally start the server
+
+`npm start`
+
 ## Questions
 
 1. What is typescript?
