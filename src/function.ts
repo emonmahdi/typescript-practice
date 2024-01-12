@@ -2,6 +2,20 @@ function myNumber(num1: number, num2: number) {
   return num1 + num2;
 }
 
+function mySum(a: number, b: number): string {
+  const result = a + b;
+  return `result ${result}`;
+}
+
+console.log(mySum(3, 5));
+
+const mySumArrow = (c: number, d: number): number => {
+  const result2 = c + d;
+  return result2;
+};
+
+console.log(mySumArrow(5, 6));
+
 // arrow function
 
 const myArrNum = (num1: number, num2: number): number => num1 * num2;

@@ -1,8 +1,8 @@
 const details: {
   name: string;
-  age: number;
+  readonly age: number;
   job: string;
-  isMarried: boolean;
+  isMarried?: boolean;
   friends: string[];
 } = {
   name: "Arif",
@@ -11,3 +11,12 @@ const details: {
   isMarried: true,
   friends: ["emon", "rahat", "arif"],
 };
+
+// details.age = 33;
+// console.log(details);
+
+// destructuring
+
+const { job } = details;
+
+console.log(job);

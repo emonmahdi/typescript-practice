@@ -32,9 +32,7 @@
 
 8. Modify tsconfig.json file rootDir - /src and outDir - ./dist
 
-9. Then finally start the server
-
-`npm start`
+9. Then finally start the server - `npm start` or `npx ts-node-dev --respawn src/fileName`
 
 ## Questions
 
@@ -103,6 +101,20 @@ TypeScript assumes a variable is of type any when you don’t explicitly provide
 
 Arrays are a collection of elements, and they can be of any data type. TypeScript supports arrays through the Array type or the shorthand syntax with square brackets [].
 
+```ts
+const district: string[] = ["dhaka", "barishal", "sylet"];
+const myNumbers: number[] = [12, 4, 36];
+const isMarry2: boolean[] = [false];
+// not maintain serial type data and length
+const heroInfo: (string | string | number | boolean)[] = [
+  "Sakib Khan",
+  "Actor",
+  300,
+  false,
+  500000,
+];
+```
+
 ```tsx
 // Declaration using Array type
 let numbers: Array<number> = [1, 2, 3, 4, 5];
@@ -130,6 +142,14 @@ for (let num of numbers) {
 Tuples are similar to arrays, but they have a fixed number of elements, and each element can have a different data type. Tuples are defined using parentheses ().
 
 ```tsx
+// maintain type and length
+const myInfosDoc: [string, number, string, boolean] = [
+  "Md Emon Mahdi",
+  26,
+  "Web Developer",
+  false,
+];
+
 // Declaration of a tuple
 let person: [string, number] = ["John", 30];
 
@@ -148,6 +168,23 @@ person[1] = 31;
 In TypeScript, objects are used to represent structured data. You can define an object using the curly braces {} and specify the types for its properties.
 
 ```tsx
+const details: {
+  name: string;
+  readonly age: number;
+  job: string;
+  isMarried?: boolean;
+  friends: string[];
+} = {
+  name: "Arif",
+  age: 28,
+  job: "Trainer",
+  isMarried: true,
+  friends: ["emon", "rahat", "arif"],
+};
+
+// details.age = 33;   // readOnly property just use not do modify
+// console.log(details);
+
 // Object with specified types for properties
 let person: { name: string; age: number } = {
   name: "Alice",
@@ -209,6 +246,22 @@ let john: Person = {
 You can declare a function using the function keyword. You can also specify the types for parameters and the return type.
 
 ```tsx
+// normal function
+function mySum(a: number, b: number): string {
+  const result = a + b;
+  return `result ${result}`; // string type return
+}
+
+// console.log(mySum(3, 5));
+
+// arrow function
+const mySumArrow = (c: number, d: number): number => {
+  const result2 = c + d;
+  return result2; // number type return
+};
+
+// console.log(mySumArrow(5, 6))
+
 function add(x: number, y: number): number {
   return x + y;
 }
@@ -289,6 +342,13 @@ The spread operator (...) is used to spread the elements of an array or the prop
 ##### Spread with Arrays:
 
 ```ts
+// spread operator
+const myFri = ["abir", "kabir", "rashid"];
+const newFri = ["habib", "jamil", "rakib"];
+
+myFri.push(...newFri); // newFri er value myFri te add hobe [] braket uthe jabe
+console.log(myFri);
+
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1, 4, 5, 6];
 
@@ -309,6 +369,25 @@ console.log(obj2); // { a: 1, b: 2, c: 3, d: 4 }
 You can use the rest parameter syntax (...) to capture multiple arguments into an array.
 
 ```ts
+const myNums = (...nums: number[]): number => {
+  let sum: number = 0;
+  nums.map((n) => {
+    sum = sum + n;
+  });
+
+  return sum;
+};
+
+myNums(12, 34, 5, 3, 1, 34, 56, 1);
+
+// string
+const myStr = (..strings: string[]): void => {
+    strings.map(str => console.log(str))
+}
+
+// void use korbo jkn kono kisu return korar dorker hobe na tkn
+myStr('Emon', 'Mahdi', 'web devloper')
+
 function sum(...numbers: number[]): number {
   return numbers.reduce((acc, val) => acc + val, 0);
 }
@@ -347,6 +426,14 @@ const numbers = [1, 2, 3];
 const [first, second, third] = numbers;
 
 console.log(first, second, third); // 1 2 3
+
+// destructuring
+const myFri = ["abir", "kabir", "rashid"];
+const newFri = ["habib", "jamil", "rakib"];
+
+const [fri1, fri2, fri3] = myFri;
+// abir, kabir, rashid
+console.log(fri1, fri2, fri3);
 ```
 
 ##### Destructuring Objects:
