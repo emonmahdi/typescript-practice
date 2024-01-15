@@ -463,6 +463,16 @@ printPerson(person); // Bob is 25 years old
 A type alias allows you to create a named alias for a type. This is useful for defining complex types or for providing more descriptive names for existing types.
 
 ```ts
+type PersonType = {
+  name: string;
+  age: number;
+};
+
+const singlePerson: PersonType = {
+  name: "Masum Ahmed",
+  age: 26,
+};
+
 type Point = {
   x: number;
   y: number;
