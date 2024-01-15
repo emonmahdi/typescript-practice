@@ -716,6 +716,36 @@ console.log(outputNullish);
 
 2.1 Type Assertion
 
+```ts
+// type assertion
+// 3 ways to assertion
+// as keyword
+// <> - angel braket
+// object use
+
+// as keyword
+const myInput: any = 3343.543;
+const myResult: number = myInput as number;
+console.log(myResult.toFixed(2));
+
+// <>
+const myInput2: any = "324323";
+const myResult2: string = <string>myInput2;
+console.log(myResult2.length);
+
+// object
+interface student {
+  name: string;
+  age: number;
+}
+
+const myResult3 = <student>{
+  name: "Emon Mahdi",
+  age: 26,
+};
+console.log(myResult3);
+```
+
 2.2 Interface, Type vs Interface
 
 ```ts
