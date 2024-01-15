@@ -620,11 +620,21 @@ The null type represents the intentional absence of any object value. It is a su
 ```ts
 let value: string | null = "Hello";
 value = null; // Valid
+
+const myFunc = (text: string | null): void => {
+  if (text === null) {
+    console.log("Text is null");
+  }
+};
+
+myFunc(null);
 ```
 
 ##### unknown Type:
 
 The unknown type is a type-safe counterpart of any. It is a type that represents values about which you have little or no information. Unlike any, you cannot perform arbitrary operations on values of type unknown without first asserting or narrowing the type.
+
+Jokhon amra jani na user ki type er data debe se khetre unknown type use korbo.
 
 ```ts
 let userInput: unknown = 5;
@@ -694,6 +704,12 @@ let value: string | null | undefined;
 
 let result: string = value ?? "Default Value";
 console.log(result); // Output: Default Value
+
+// check the value null or undefined
+
+const someInput: unknown = 43;
+const outputNullish = someInput ?? "No input";
+console.log(outputNullish);
 ```
 
 ### 2. Advanced
@@ -701,6 +717,23 @@ console.log(result); // Output: Default Value
 2.1 Type Assertion
 
 2.2 Interface, Type vs Interface
+
+```ts
+
+interface IDeveloper{
+  name: string;
+  age: number
+}
+
+const detailDev: IDeveloper = {
+  name: 'Rahim';
+  age: 29
+}
+
+```
+
+Primitive type er data er jonno type use korbo
+Object type er data er jonno interface use korbo.
 
 2.3 Introduction of Generic in type
 
