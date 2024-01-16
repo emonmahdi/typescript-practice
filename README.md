@@ -837,11 +837,18 @@ type MovieType = {
   duration: number;
 };
 
+const dataMovie: MovieType = {
+  name: "hero the star",
+  category: "action",
+  duration: 2.3,
+};
+
 // type namesF = "abir" | "rahat" | "arif";
 // const myTest:namesF = 'rahat'
 
 type MyMovieType = keyof MovieType; // 'name' | 'category' | 'duration'
 const resultM: MyMovieType = "category";
+console.log(dataMovie[resultM]); // action
 ```
 
 2.8 Asynchronous typescript
