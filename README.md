@@ -975,4 +975,59 @@ class Person2 extends Person1 {
 // make instance
 const p2 = new Person2("Mahdi", 26, 20000, "developer");
 console.log(p2);
+console.log(p2.show());
+```
+
+2.12 Type Guard
+
+There are three type guard in typescript
+
+1. of guard using typeof
+2. in guard using in keyword
+3. instanceof guard using instanceof keyword
+
+#### typeof
+
+```ts
+// of guard
+type typeOfData = string | number;
+
+const doSomething = (a: typeOfData): typeOfData => {
+  if (typeof a === "number") {
+    return a;
+  }
+  return a;
+};
+
+console.log(doSomething(33));
+console.log(doSomething("Amin"));
+```
+
+#### in guard
+
+```ts
+// in guard
+
+type X = {
+  name: string;
+  position: string;
+};
+
+type Y = {
+  name: string;
+  age: number;
+  salary: string;
+};
+
+const getInfo = (info: X | Y) => {
+  if ("position" in info) {
+    return `My Position is ${info.position}`;
+  } else if ("salary" in info) {
+    return `My salary is ${info.salary}`;
+  }
+};
+```
+
+```
+
 ```
