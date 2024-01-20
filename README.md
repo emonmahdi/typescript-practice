@@ -1035,6 +1035,29 @@ car1.start();
 // Note: Abstraction holo implementation k hide kore. abstract class er instance kora jay na.  eta k bahir theke keo control korte parbe na
 ```
 
+#### Encapsulation
+
+```ts
+class MyBank {
+  id: number;
+  private amount: number;
+  name: string;
+
+  constructor(id: number, amount: number, name: string) {
+    this.id = id;
+    this.amount = amount;
+    this.name = name;
+  }
+}
+
+const bank = new MyBank(12, 30000, "Md Emon Mahdi");
+// const amountCheck = bank.amount;
+console.log(bank);
+// console.log(amountCheck);
+
+// note: If i use the private any property then that property are encapsulated not the access the property
+```
+
 2.12 Type Guard
 
 There are three type guard in typescript
