@@ -1314,3 +1314,52 @@ userRepository.delete(1);
 
 console.log(allUser);
 ```
+
+#### 6. Define a type alias called Coordinates that represents the latitude and longitude of a location. It should be an object with latitude and longitude properties, both of which are numbers. Create a variable of type Coordinates and assign some sample values to it.
+
+#### Solution:
+
+```ts
+type Coordinates = {
+  latitude: number;
+  longitude: number;
+};
+
+const locations: Coordinates = {
+  latitude: 43.232,
+  longitude: -23.3232,
+};
+
+console.log(locations);
+```
+
+#### 7. Define an enum called Color with values representing different colors (e.g., Red, Green, Blue). Create a function that takes a Color value as input and prints out a corresponding message (e.g., "You selected Red").
+
+#### Solution:
+
+```ts
+enum Color {
+  Red = "Red",
+  Green = "Green",
+  Blue = "Blue",
+}
+
+function printColorMessage(color: Color) {
+  switch (color) {
+    case Color.Red:
+      console.log("You are selected Red");
+      break;
+    case Color.Green:
+      console.log("You are selected Green");
+      break;
+    case Color.Blue:
+      console.log("You are selected Blue");
+      break;
+    default:
+      console.log("unknown color select");
+  }
+}
+
+const selectedColor = Color.Blue;
+printColorMessage(selectedColor);
+```
