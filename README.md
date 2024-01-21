@@ -1172,14 +1172,39 @@ console.log(p5);
 ```ts
 function arraySum(arr: number[]): number {
   let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+  // for (let i = 0; i < arr.length; i++) {
+  //   sum += arr[i];
+  // }
+
+  for (let ar of arr) {
+    sum += ar;
   }
 
   return sum;
 }
 
-const myNum: number[] = [2, 3, 4, 5];
+const myNum: number[] = [1, 3, 4, 5];
 const result: number = arraySum(myNum);
 console.log(result);
+```
+
+### 2. Define an interface called Person that has the following properties: name (string), age (number), and email (string). Create an object based on this interface and print out its properties.
+
+#### Solution:
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  email: string;
+}
+
+const FirstPerson: Person = {
+  name: "Md Emon mahdi",
+  age: 26,
+  email: "emonhowlader1397@gmail.com",
+};
+console.log(FirstPerson.name);
+console.log(FirstPerson.age);
+console.log(FirstPerson.email);
 ```
