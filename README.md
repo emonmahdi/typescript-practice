@@ -1208,3 +1208,38 @@ console.log(FirstPerson.name);
 console.log(FirstPerson.age);
 console.log(FirstPerson.email);
 ```
+
+#### 3. Write a function called calculateArea that takes the length and width of a rectangle as parameters and returns its area. Define the types for the input parameters and return value.
+
+#### Solution:
+
+```ts
+function calculateArea(length: number, width: number): number {
+  const area = length * width;
+  return area;
+}
+
+const lengths: number = 10;
+const width: number = 8;
+console.log(calculateArea(lengths, width));
+```
+
+#### 4. Implement a generic function called reverseArray that takes an array of any type and returns the reversed version of the array. Test it with different types of arrays (e.g., numbers, strings) to ensure it works correctly.
+
+#### Solution:
+
+```ts
+// normal function
+function reverseArray<T>(array: T[]): T[] {
+  const reverse = array.reverse();
+  return reverse;
+}
+
+// arrow function
+const reverseA = <T>(arr: T[]): T[] => {
+  return arr.reverse();
+};
+
+const myArr = [1, 2, 3, 4, 5, 6, 7];
+console.log(reverseA(myArr));
+```
