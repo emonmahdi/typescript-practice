@@ -1363,3 +1363,80 @@ function printColorMessage(color: Color) {
 const selectedColor = Color.Blue;
 printColorMessage(selectedColor);
 ```
+
+#### 8. Create a base class called Shape with a method calculateArea that returns the area of the shape. Extend this class to create subclasses for specific shapes like Rectangle and Circle. Implement the calculateArea method in each subclass and test it with different dimensions.
+
+#### Solution:
+
+```ts
+abstract class Shape {
+  abstract calculateArea(): number;
+}
+
+class Rectangle extends Shape {
+  constructor(private width: number, private height: number) {
+    super();
+  }
+  calculateArea(): number {
+    return this.height * this.width;
+  }
+}
+
+class Circle extends Shape {
+  constructor(private radius: number) {
+    super();
+  }
+  calculateArea(): number {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+// Test the classes
+const rectangle = new Rectangle(20, 30);
+console.log(rectangle.calculateArea());
+
+const circle = new Circle(3);
+console.log(circle.calculateArea());
+```
+
+#### 9. Define two interfaces: Car with properties like make, model, and year, and Driver with properties like name and licenseNumber. Create a function that takes objects of type Car and Driver and returns an object with the combined properties of both types.
+
+#### Solution:
+
+```ts
+interface Carr {
+  make: string;
+  model: string;
+  year: number;
+}
+
+interface Driver {
+  name: string;
+  licenseNumber: number;
+}
+
+function combineCarAndDriver(
+  car: Carr,
+  driver: Driver
+): { car: Carr; driver: Driver } {
+  return {
+    car: car,
+    driver: driver,
+  };
+}
+
+// use Car
+const myCar: Carr = {
+  make: "Toyota",
+  model: "Camry",
+  year: 2022,
+};
+console.log(myCar);
+
+// use Driver
+const myDriver: Driver = {
+  name: "Amir Ali",
+  licenseNumber: 2342342,
+};
+console.log(myDriver);
+```
