@@ -1440,3 +1440,136 @@ const myDriver: Driver = {
 };
 console.log(myDriver);
 ```
+
+#### 10. Create a function that takes a parameter which can be either a string or an array of strings. If it's a string, return the uppercase version of the string. If it's an array of strings, return an array with each string in uppercase.
+
+#### Solution:
+
+```ts
+function convertToUppercase(input: string | string[]): string | string[] {
+  if (typeof input === "string") {
+    return input.toUpperCase();
+  } else if (Array.isArray(input)) {
+    return input.map((str) => str.toUpperCase());
+  } else {
+    throw new Error("Invalid input");
+  }
+}
+
+// check string
+const myStr = "Md Emon Mahdi";
+console.log(convertToUppercase(myStr));
+
+// check array
+const myArray = ["abul", "Kabul", "sagor", "hasan"];
+console.log(convertToUppercase(myArray));
+```
+
+#### 11. Declare a variable with an initial value of null and type it as string. Use type assertion to assign a string value to this variable and then print its length.
+
+#### Solution:
+
+```ts
+let myStrings: string | null = null;
+myStrings = "Hi My Name is Mahdi" as string;
+console.log(myStrings.length);
+```
+
+#### 12. Create a function that takes an input parameter of type unknown. Inside the function, implement type guards to check if the input is of type string or number and perform different operations based on the type.
+
+#### Solution:
+
+```ts
+function myFunctionData(input: unknown): void {
+  if (typeof input === "string") {
+    console.log(`This input is String: ${input}`);
+  } else if (typeof input === "number") {
+    console.log(`This input is Number: ${input}`);
+  } else {
+    console.log("Unknown input type");
+  }
+}
+
+myFunctionData("Hello Typescript"); //This input is String: Hello Typescript
+myFunctionData(29); // This input is Number: 29
+myFunctionData(false); // Unknown input type
+```
+
+#### 13. Create a generic function that takes an array of elements and returns the first element of the array. Add a constraint to ensure that the generic type can be compared using the > operator.
+
+#### Solution:
+
+```ts
+function firstElement<T extends number | string>(arr: T[]): T | undefined {
+  if (arr.length > 0) {
+    return arr[0];
+  } else {
+    return undefined;
+  }
+}
+
+// number input
+const numbers: number[] = [12, 3, 45, 6, 4];
+const resultNumber = firstElement(numbers);
+console.log(resultNumber);
+
+// string input
+const strings: string[] = ["emon", "abir", "habib", "kader"];
+const resultString = firstElement(strings);
+console.log(resultString);
+```
+
+#### 14. Create a function that takes two parameters: one can be either a string or number, and the other can be either a boolean or an array of strings. Implement logic in the function to perform different operations based on the types of the parameters.
+
+#### Solution:
+
+```ts
+function performOperations(
+  param1: string | number,
+  param2: boolean | string[]
+): void {
+  if (typeof param1 === "string" && Array.isArray(param2)) {
+    console.log("Performing Operations 1");
+    console.log(`Param1: ${param1.toUpperCase()}`);
+    console.log(`Param2: ${param2.length}`);
+  }
+  if (typeof param1 === "number" && typeof param2 === "boolean") {
+    console.log("Performing Operations 2");
+    console.log(`Param1: ${param1 * 2}`);
+    console.log(`Param2: ${param2}`);
+  } else {
+    console.log("Invalid input parameter types");
+  }
+}
+
+performOperations("Habibur Rahman", ["a", "b", "c", "d"]);
+// performOperations(23, false);
+// performOperations(23, ["a", "c", "a"]);
+```
+
+#### 15. Create a generic function called filterArray that takes an array of any type and a predicate function as parameters. The function should return a new array that contains only the elements for which the predicate function returns true. Ensure that the function is flexible enough to work with different types of arrays.
+
+#### Solution:
+
+```ts
+function filterArray<T>(arr: T[], predicate: (value: T) => boolean): T[] {
+  let predicateArr: T[] = [];
+
+  for (const element of arr) {
+    if (predicate(element)) {
+      predicateArr.push(element);
+    }
+  }
+  return predicateArr;
+}
+
+// number
+const numberss = [1, 2, 3, 4, 5, 6, 7];
+const evenNumbers = filterArray(numberss, (num) => num % 2 == 0);
+console.log(evenNumbers);
+
+// for string
+const myStringFriend = ["abrar", "hosen", "hafizur Rahman", "deloyer"];
+const longNames = filterArray(myStringFriend, (names) => names.length > 6);
+console.log(longNames);
+```
