@@ -1602,9 +1602,9 @@ Typescript provides better tooling, code navigation, and compile-time checks, ma
 
 Ref:
 
-1. `https://itjet.io/blog/what-is-typescript`
-2. `https://startup-house.com/blog/benefit-of-typescript`
-3. `https://prismic.io/blog/what-is-typescript`
+1. [https://itjet.io/blog/what-is-typescript]
+2. [https://startup-house.com/blog/benefit-of-typescript]
+3. [https://prismic.io/blog/what-is-typescript]
 
 ### 2. Generics কি, কিভাবে কাজ করে?
 
@@ -1618,9 +1618,10 @@ any টাইপ ফাংশন আর্গুমেন্টে বিভি�
 
 ```ts
 function identity<T>(arg: Type): T {
-   return arg;
+  return arg;
 }
 ```
+
 Generics are a TypeScript feature that allows us to pass in various types of data and create reusable code to handle different inputs. They allow us to define placeholder types which are then replaced when the code is executed with the actual types passed in.
 
 Generics are like a template that can be reused across the same piece of code multiple times but with the value being independent of each invocation of the function. Let’s look at an example to get a better understanding of this.
@@ -1632,14 +1633,143 @@ function getFirstElement<T>(arr: T[]): T {
 }
 
 const numberArray: number[] = [1, 2, 3, 4, 5];
-const stringArray: string[] = ['apple', 'banana', 'orange'];
+const stringArray: string[] = ["apple", "banana", "orange"];
 
 // 👇 Note the generic values being passed in <number> & <string>
 const firstNumber = getFirstElement<number>(numberArray);
 const firstString = getFirstElement<string>(stringArray);
-````
+```
 
 Ref:
 
-1. `https://academy.vivasoftltd.com/typescript-bootcamp/generix/generic-function/`
-2. `https://prismic.io/blog/typescript-generics`
+1.  [https://academy.vivasoftltd.com/typescript-bootcamp/generix/generic-function/]
+2.  [https://prismic.io/blog/typescript-generics]
+
+### 3. Getter, Setter কি, কিভাবে কাজ করে?
+
+#### Answer:
+
+Getter এবং Setter হলো TypeScript এবং অন্যান্য অবজেক্ট-অরিয়েন্টেড প্রোগ্রামিং ভাষাগুলিতে ক্লাসের ইন্সট্যান্স ভ্যারিয়েবলগুলির মান প্রাপ্ত করার এবং পরিবর্তন করার জন্য ব্যবহৃত স্পেশাল মেথড।
+
+#### Getter:
+
+Getter একটি মেথড যা একটি ক্লাসের ইন্সট্যান্স ভ্যারিয়েবলের মান প্রাপ্ত করার জন্য ব্যবহৃত হয়। এটি একটি প্রপার্টি থেকে মান পড়তে সাহায্য করে এবং প্রোপার্টির মান ব্যবহারকারীদের কাছে অংকিত করতে সাহায্য করে।
+
+একটি উদাহরণে, একটি Person ক্লাসে একটি fullName প্রপার্টি থাকতে পারে এবং এর জন্য একটি Getter ব্যবহার করা যেতে পারে:
+
+```ts
+class Person {
+  tName: string;
+  private _firs;
+  private _lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+  }
+
+  // Getter for fullName property
+  get fullName(): string {
+    return `${this._firstName} ${this._lastName}`;
+  }
+}
+
+// Creating an instance of Person
+const person = new Person("John", "Doe");
+
+// Accessing the fullName property using the getter
+console.log(person.fullName); // Output: John Doe
+```
+
+#### Setter:
+
+Setter একটি মেথড যা একটি ক্লাসের ইন্সট্যান্স ভ্যারিয়েবলের মান পরিবর্তন করার জন্য ব্যবহৃত হয়। এটি একটি প্রপার্টির মান সেট করতে সাহায্য করে এবং মান সেট করার পর কোনও বৈধতা চেক করতে সাহায্য করে।
+
+উদাহরণস্বরূপ, আমরা Person ক্লাসে fullName প্রপার্টির জন্য Setter ব্যবহার করতে পারি:
+
+```ts
+class Person {
+  private _firstName: string;
+  private _lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+  }
+
+  // Getter for fullName property
+  get fullName(): string {
+    return `${this._firstName} ${this._lastName}`;
+  }
+
+  // Setter for fullName property
+  set fullName(value: string) {
+    const names = value.split(" ");
+    this._firstName = names[0];
+    this._lastName = names[1];
+  }
+}
+
+// Creating an instance of Person
+const person = new Person("John", "Doe");
+
+// Using the setter to update the fullName property
+person.fullName = "Jane Doe";
+
+// Accessing the updated fullName property using the getter
+console.log(person.fullName); // Output: Jane Doe
+```
+
+##### Note: Getter এবং Setter দুইটি স্পেশাল মেথড এবং এগুলি একটি ক্লাসের ইন্সট্যান্স ভ্যারিয়েবল বা প্রপার্টির মান প্রাপ্ত করতে এবং পরিবর্তন করতে ব্যবহৃত হয়।
+
+Getter: This method comes when you want to access any property of an object. A getter is also called an accessor.
+
+Setter: This method comes when you want to change any property of an object. A setter is also known as a mutator.
+
+Ref: [https://www.typescripttutorial.net/typescript-tutorial/typescript-getters-setters/]
+
+### 4. Class এ super কিওয়ার্ড এর কাজ কি?
+
+#### Answer:
+
+super কিওয়ার্ডটি জাভাস্ক্রিপ্টে অবজেক্ট-অরিয়েন্টেড প্রোগ্রামিং (OOP) এর ক্ষেত্রে ব্যবহার হয়। এটি একটি চাইল্ড ক্লাসের মেথডে প্যারেন্ট ক্লাসের একই নামের মেথডকে কল করতে ব্যবহৃত হয়, যার মাধ্যমে চাইল্ড ক্লাসের মেথড প্যারেন্ট ক্লাসের সাথে যোগাযোগ করতে পারে এবং এটি চাইল্ড ক্লাসের কনস্ট্রাক্টরে প্যারেন্ট ক্লাসের কনস্ট্রাক্টর কে কল করতেও ব্যবহার হয়।
+
+The super keyword is used to call the constructor of its parent class to access the parent's properties and methods.
+
+### 5. ধরুন আমি কোন Interface এর সকল প্রোপার্টি অপশনাল করতে চাচ্ছি, তাহলে কি করবো?
+
+#### Answer:
+
+TypeScript-এ, আপনি এমন করে ইন্টারফেসের সকল প্রোপার্টি অপশনাল করতে চাইলে, সেই ইন্টারফেসে সব প্রোপার্টির শেষে ? চিহ্ন ব্যবহার করতে পারেন। এটি বুঝাচ্ছে যে, সেই প্রোপার্টি অপশনাল (optional)। যে ইন্টারফেসের প্রোপার্টির মান অপশনাল তা হবে undefined অথবা এই প্রোপার্টি থাকতে পারে না।
+
+### 6. Type Assertion এবং Type Casting এর মধ্যে কি পার্থক্য রয়েছে?
+
+#### Answer:
+
+Type assertion is a concept used during development to inform the TypeScript compiler about the type of a value, while type casting is a runtime operation that converts a value from one type to another. TypeScript mainly uses type assertion as a way to emulate type casting during development.
+
+টাইপ এসারশনস হল টাইপস্ক্রিপ্ট -এর একটি মেকানিজম যা কম্পাইলারকে ভ্যারিয়েবল টাইপের তথ্য দেয়। সাধারণত টাইপ এসারশনস ব্যবহার করে একটি ভ্যারিয়েবলের টাইপকে ওভাররাইড করা হয়।
+
+টাইপ এসারশনস ব্যবহার করে ভ্যারিয়েবলে মান অ্যাসাইন করার সময় সর্বদা নিশ্চিত হতে হবে যে সঠিক টাইপ এসারশন করা হয়েছে, না হয় প্রোগ্রাম সঠিকভাবে কাজ নাও করতে পারে।
+
+এটি ব্যবহার করে, আমরা যেকোনো একটি সংখ্যাকে স্ট্রিং হিসাবেও বিবেচনা করতে পারি। জাভাস্ক্রিপ্ট থেকে টাইপস্ক্রিপ্টে কোড সরানোর সময়, টাইপ অ্যাসারশন প্রায়শই ব্যবহার করা হয়।
+
+টাইপ এসারশন ফাংশন টাইপকাস্টিংয়ের মতো হলেও এর কিছু পার্থক্য রয়েছে, যেমন এটি C# এবং জাভার টাইপকাস্টিংয়ের থেকে ভিন্ন, এটি টাইপ যাচাইকরণ বা ডাটা পুনর্বিন্যাস করে না। টাইপকাস্টিংয়ের জন্য রানটাইম সাপোর্ট প্রদান করা হলেও, টাইপ অ্যাসারশন রানটাইমকে প্রভাবিত করে না। টাইপ এসারশন শুধুমাত্র কম্পাইল টাইমে কম্পাইলারকে কিভাবে কোড রিড করতে হবে তার ইঙ্গিত দেয়।
+
+#### Type Assertion:
+
+Type assertion is a way to tell the TypeScript compiler that you know more about the type of a value than it does. It is primarily used during development to inform the compiler about the actual type of a value when the compiler cannot accurately determine it.
+
+- Type assertions instruct the compiler to treat a value as a specified type.
+- Type assertions do not carry any type conversion.
+- Type assertions use the as keyword or an angle bracket <> syntax.
+
+#### Type Casting:
+
+Type casting refers to the process of converting a value from one type to another at runtime. It's more of a runtime concept and is not directly supported by TypeScript. Instead, TypeScript uses type assertion during development to provide type information to the compiler.
+
+- Type casting allows you to convert a variable from one type to another.
+- Use the as keyword or <> operator for type castings.
+
+Ref: [https://academy.vivasoftltd.com/typescript-bootcamp/advanced-type/type-assertions/]
+[https://www.typescripttutorial.net/typescript-tutorial/type-assertions/]
