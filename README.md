@@ -1773,3 +1773,121 @@ Type casting refers to the process of converting a value from one type to anothe
 
 Ref: [https://academy.vivasoftltd.com/typescript-bootcamp/advanced-type/type-assertions/]
 [https://www.typescripttutorial.net/typescript-tutorial/type-assertions/]
+
+### 7. TypeScript-এ Declaration Merging কি? এটি কীভাবে কাজ করে?
+
+#### Answer:
+
+Declaration Merging-এর মাধ্যমে, TypeScript-এ একই নামের একাধিক ডিফিনেশন থাকলে তারা একত্রে মার্জ হয় এবং একটি কোম্পাউন্ড ডিফিনেশন তৈরি হয়। এটি কোডের ব্যবস্থা হতে একে অপরের সাথে ভালো মিল খুজে পাওয়ার জন্য একটি ভালো প্রকারের ডিজাইন এবং স্ট্রাকচার তৈরি করার জন্য সাহায্য করতে পারে।
+
+ইন্টারফেস মার্জিং (Interface Merging): একই নামের একাধিক ইন্টারফেসের ডিফিনেশনগুলি একত্রে মার্জ হয়।
+ক্লাস মার্জিং (Class Merging): একই নামের একাধিক ক্লাসের ডিফিনেশনগুলি একত্রে মার্জ হয়।
+
+In Typescript, the term “declaration merging” refers to the compiler combining two declarations with the same name into a single definition. Both of the initial declarations are present in this combined definition. It is possible to merge Interfaces, namespaces and enums and so on but classes cannot be merged.
+
+### 8. Union এবং Intersection Types কি? এটি কিভাবে ব্যবহার করা হয়?
+
+#### Answer:
+
+টাইপস্ক্রিপ্টে ইউনিয়ন টাইপগুলি একটি ভ্যারিয়েবলে বা ফাংশনে একাধিক টাইপ একসেপ্ট করতে ব্যবহৃত হয়।
+
+এর মাধ্যমে একটি ভ্যারিয়েবলে একটি নির্দিষ্ট টাইপ বা একাধিক টাইপ অ্যাসাইন করা যায়। এটি আমাদেরকে ফ্লেক্সিবিলিটি প্রদান করে এবং কোডের ভুল সনাক্ত করতে সাহায্য করে।
+
+```ts
+let address: string | number;
+address = "Dhaka";
+console.log(address); // Output: Dhaka
+
+address = 100;
+console.log(address); // Output: 100
+```
+
+টাইপস্ক্রিপ্টে ইন্টারসেকশন টাইপ হলো কোনো টাইপের একটি সমন্বয় যা দুই বা ততোধিক টাইপের সংযোগ বা মিশ্রণ। অর্থাৎ টাইপস্ক্রিপ্ট দিয়ে আমরা শুধু আলাদা আলাদা টাইপ ছাড়াও কয়েকটা টাইপের কম্বিনেশনের মধ্যেমেও একটি টাইপ বানাতে পারি।
+
+```ts
+type NumberObject = {
+  numberValue: number;
+};
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+type IntersectionType = NumberObject & Person;
+
+const intersectionObj: IntersectionType = {
+  numberValue: 10,
+  name: "John",
+  age: 25,
+};
+```
+
+Union types in TypeScript allow us to define a variable or parameter that can hold values of multiple types. To create a union type, use the | operator between the types within parentheses.
+
+Intersection types in TypeScript combine multiple types into a single type, allowing developers to create new types that possess the characteristics of each merged type.
+
+Ref:
+[https://medium.com/@brianridolcedev/union-and-intersection-types-in-typescript-406f6a2f541f]
+[https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html]
+
+### 9. TypeScript প্রজেক্টে কেন এবং কিভাবে tsconfig.json ফাইল ব্যবহার করা হয়?
+
+#### Answer:
+
+tsconfig.json হলো TypeScript প্রজেক্ট সেটিংস কনফিগারেশন ফাইল, যা একটি TypeScript প্রজেক্টের সকল সেটিংস একত্রে সংরক্ষণ করে। এটি কোড কোয়ালিটি, টাইপিং, কোড জেনারেট করার পদ্ধতি, এবং অন্যান্য বিভিন্ন কাস্টমাইজেশন বিষয়গুলি সংরক্ষণ করতে ব্যবহৃত হয়।
+
+The presence of a tsconfig.json file in a directory indicates that the directory is the root of a TypeScript project. The tsconfig.json file specifies the root files and the compiler options required to compile the project.
+
+### 10. React ডেভেলপমেন্টে TypeScript কীভাবে ব্যবহার করা হয় এবং এর পোজিটিভ এবং নেগেটিভ দিক কি?
+
+#### Answer:
+
+রিয়েক্ট প্রোজেক্টে টাইপস্ক্রিপ্ট ব্যাবহারের ক্ষেত্রে দুটি সিনারিও হতে পারেঃ
+
+1. ফ্রেশ রিয়েক্ট + টাইপস্ক্রিপ্ট প্রজেক্ট বুটস্ট্র্যাপ করা
+2. কোন রিয়েক্ট প্রজেক্ট কে টাইপস্ক্রিপ্ট এ কনভার্ট করা
+
+ফ্রেশ রিয়েক্ট + টাইপস্ক্রিপ্ট প্রজেক্ট বুটস্ট্র্যাপ করাঃ টার্মিনালে গিয়ে নিচের কমান্ড রান করলে একটি ফ্রেশ রিয়েক্ট + টাইপস্ক্রিপ্ট প্রজেক্ট তৈরি হবে।
+
+`npx create-react-app my-app --template typescript`
+
+কোন রিয়েক্ট প্রজেক্ট কে টাইপস্ক্রিপ্ট এ কনভার্ট করাঃ
+
+টাইপস্ক্রিপ্ট কে ডেভ ডিপেনডেন্সি হিসাবে ইন্সটল করতে হবে
+
+`npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
+
+টাইপস্ক্রিপ্ট ইন্সটল হয়ে গেলে এটা ব্যবহার শুরু করা যাবে। উদাহরণস্বরূপ আমরা একটা ফাইল ক্রিয়েট করি এবং নাম দিব `example.tsx`
+
+#### পজিটিভ দিক:
+
+টাইপ সুরক্ষা: TypeScript আপনাকে টাইপ সুরক্ষা দেয়, যা কোডের স্বাস্থ্য এবং সুরক্ষা বাড়াতে সাহায্য করে।
+
+ডকুমেন্টেশন: টাইপিং ব্যবহার করা সাধারিত জাভাস্ক্রিপ্ট কোডের তুলনায় ভালো ডকুমেন্টেশন তৈরি করতে সাহায্য করে।
+
+IDE সাপোর্ট: TypeScript আপনার IDE (Integrated Development Environment) দ্বারা সুসজ্জিত করা হয়, এটি আপনাকে কোড অটো-কমপ্লিশন, রেফ্যাক্টরিং, এবং অন্যান্য সুবিধার সাথে সরবরাহ করে।
+
+#### নেগেটিভ দিক:
+
+আরও কোড: TypeScript ব্যবহার করতে হলে আরও কোড লিখতে হবে, কারণ আপনাকে সবগুলি ভ্যারিয়েবলের জন্য টাইপ নির্দিষ্ট করতে হবে। এটি জাভাস্ক্রিপ্ট থেকে কিছু অতিরিক্ত লেখা নিয়ে আসে।
+
+অজানা টাইপ: কখনও-কখনও, একটি জাভাস্ক্রিপ্ট লাইব্রেরি অজানা টাইপ সাপোর্ট করতে পারে এবং এটির জন্য আপনাকে অজানা টাইপ ডিফিনেশন (typings) তৈরি করতে হতে পারে।
+
+শোধ খরচ: সময় নিয়ে টাইপ সিস্টেমে ভালো ধারণা প্রাপ্ত করা সময় নিয়ে অধিক খরচ হতে পারে এবং সম্পুর্ণ প্রজেক্টে রকোডটি টাইপড করতে সময় নিয়ে অধিক সময় নেয়া যায়।
+
+Ref: [https://academy.vivasoftltd.com/typescript-bootcamp/integration-with-reject/create-reject-project-with-typescript/]
+
+[https://blog.logrocket.com/how-to-use-typescript-react-tutorial-examples/]
+
+React-typescript: [https://www.simplilearn.com/tutorials/reactjs-tutorial/react-typescript]
+
+## Another Interview Questions
+
+1. What are some benefits of using TypeScript over JavaScript in a project?
+2. What is the purpose of the optional chaining `(?.)` and nullish coalescing `(??) `operators in TypeScript, and how do they work? Provide an example for each
+3. How do you handle asynchronous operations in TypeScript, and what are the advantages of using async/await over callbacks or Promises?.
+4. How can you use TypeScript's enums, and what are their advantages?.
+5. Explain the role of type guards in TypeScript and provide an example of a custom type guard.
+6. Can you give an example of how to use "readonly" properties in TypeScript?
+7. Explain what a union type is in TypeScript and provide an example of its usage.
